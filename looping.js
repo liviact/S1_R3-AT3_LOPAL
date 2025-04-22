@@ -1,13 +1,13 @@
-const num = parseInt(prompt("Digite um número para eu dizer os números até ele:"));
+let soma = 0;
 
-if (isNaN(num) || num <= 1) {
-    alert("ERRO: você não digitou um número válido!");
-} else {
-    let numeros = ""; // variável para guardar os números
-
-    for (let i = 1; i <= num; i++) {
-        numeros += i + "\n"; // adiciona número com quebra de linha
-    }
-
-    console.log(`Números de 1 até ${num} são:\n${numeros}`);
+// for para pedir 10 números
+for (let i = 1; i <= 10; i++) {
+    // Solicita ao usuário para digitar um número
+    let numero = parseInt(prompt(`Digite o ${i}º número:`));
+    
+    // Adiciona o número à soma
+    soma += numero;
 }
+
+// Exibe a soma total dos números
+alert(`A soma dos 10 números é: ${soma}`);
