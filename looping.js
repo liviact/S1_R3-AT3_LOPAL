@@ -1,15 +1,27 @@
-// Solicita ao usuário um número
-let numero = parseInt(prompt("Digite um número para ver sua tabuada:"));
-if (isNaN(numero)){
-    alert ("digite um número válido");
+// Inicializa a variável soma, que vai acumular as notas
+let soma = 0;
+
+// Variável para armazenar a nota digitada pelo usuário
+let nota;
+
+// Inicia o loop que irá rodar 5 vezes (uma para cada nota)
+for (let i = 1; i <= 5; i++) {
+  nota = parseFloat(prompt(`Digite a nota ${i}:`));
+
+  // Este loop verifica se a nota é válida (não é NaN e está no intervalo de 0 a 10)
+  for (let tentativas = 0; isNaN(nota) || nota < 0 || nota > 10; tentativas++) {
+    // Se não for a primeira tentativa, avisa que a entrada foi inválida
+    if (tentativas > 0) {
+      alert("Nota inválida. Digite novamente.");
+    }
+  }
+
+  // Após a entrada válida, adiciona a nota à soma
+  soma += nota;
 }
 
-let resultado;
-let frase="";
-// Exibe a tabuada do número de 1 a 10
-for (let i = 1; i <= 10; i++) {
-    resultado= numero * i;
-    frase +=`${numero} * ${i} = ${resultado} \n`;
-}
+// Após o loop terminar, calcula a média dividindo a soma das notas por 5
+let media = soma / 5;
 
-alert (frase);
+// Exibe o resultado da média com duas casas decimais
+alert(`A média das notas é: ${media.toFixed(2)}`);
