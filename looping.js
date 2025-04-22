@@ -1,27 +1,29 @@
-// Inicializa a variável soma, que vai acumular as notas
-let soma = 0;
+// solicita ao usuário os dois números
+let numero1 = parseInt(prompt("Digite o primeiro número:"));
+let numero2 = parseInt(prompt("Digite o segundo número:"));
 
-// Variável para armazenar a nota digitada pelo usuário
-let nota;
+if (isNaN(numero1) || isNaN(numero2)) {
+    alert("erro, digite um número válido!")
+} else {
 
-// Inicia o loop que irá rodar 5 vezes (uma para cada nota)
-for (let i = 1; i <= 5; i++) {
-  nota = parseFloat(prompt(`Digite a nota ${i}:`));
+    // determina o menor e maior número manualmente usando if
+    let inicio;
+    let fim;
 
-  // Este loop verifica se a nota é válida (não é NaN e está no intervalo de 0 a 10)
-  for (let tentativas = 0; isNaN(nota) || nota < 0 || nota > 10; tentativas++) {
-    // Se não for a primeira tentativa, avisa que a entrada foi inválida
-    if (tentativas > 0) {
-      alert("Nota inválida. Digite novamente.");
+    if (numero1 < numero2) {
+        inicio = numero1;
+        fim = numero2;
+    } else {
+        inicio = numero2;
+        fim = numero1;
     }
-  }
-
-  // Após a entrada válida, adiciona a nota à soma
-  soma += nota;
+    let frase = ""
+    // exibe todos os números pares no intervalo
+    for (let i = inicio; i <= fim; i++) {
+        // verifica se o número é par
+        if (i % 2 === 0)
+            frase += `${i} \n`; {
+        }
+    }
+    alert(frase);
 }
-
-// Após o loop terminar, calcula a média dividindo a soma das notas por 5
-let media = soma / 5;
-
-// Exibe o resultado da média com duas casas decimais
-alert(`A média das notas é: ${media.toFixed(2)}`);
